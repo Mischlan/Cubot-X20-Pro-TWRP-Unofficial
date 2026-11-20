@@ -1,0 +1,22 @@
+name: Build TWRP (Cubot X20 Pro)
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL /usr/local/share/boost
+          df -h /
+      - name: Build in Ubuntu 18.04 container
+        run: |
+          mkdir -p /home/runner/twrp
+          docker run --rm -v /home/runner/twrp:/twrp -v "$GITHUB_WORKSPACE/cubot-x20-pro-twrp":/src ubuntu:18.04 bash /src/build.sh
+      - name: Upload recovery image
+        uses: actions/upload-artifact@v4
+        with:
+          name: twrp-cubot-x20-pro
+          path: /home/runner/twrp/out/target/product/X20_Pro/recovery.img
