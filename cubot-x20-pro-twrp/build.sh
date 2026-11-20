@@ -4,7 +4,7 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get install -y git-core gnupg flex bison build-essential zip curl zlib1g-dev gcc-multilib g++-multilib \
   libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev libgl1-mesa-dev libxml2-utils \
-  xsltproc unzip fontconfig openjdk-8-jdk python python3 bc rsync lz4 libssl-dev ca-certificates
+  xsltproc unzip fontconfig openjdk-8-jdk python python3 bc rsync liblz4-tool libssl-dev ca-certificates
 curl -s https://storage.googleapis.com/git-repo-downloads/repo -o /usr/local/bin/repo
 chmod +x /usr/local/bin/repo
 git config --global user.email "ci@example.com"
