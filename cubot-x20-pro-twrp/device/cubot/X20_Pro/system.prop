@@ -1,0 +1,6 @@
+ro.product.brand=CUBOT
+ro.product.name=X20_PRO_EEA
+ro.product.device=X20_PRO
+ro.product.board=E966
+ro.build.product=X20_PRO
+ro.treble.enabled=true
